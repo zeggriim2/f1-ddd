@@ -23,6 +23,7 @@ build: ## Builds the Docker images
 
 up: ## Start the docker hub in detached mode (no logs)
 	@$(DOCKER_COMP) up --detach
+	#@$(DOCKER_COMP) --env-file .env.dev.local  up --detach
 
 start: build up ## Build and start the containers
 

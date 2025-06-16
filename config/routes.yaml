@@ -3,3 +3,8 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+api_fi:
+    resource: ../src/Controller/F1RaceResult/
+    type: attribute
+    prefix: '/api/f1'
