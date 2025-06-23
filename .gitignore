@@ -17,3 +17,5 @@ docker/db
 /phpunit.xml
 /.phpunit.cache/
 ###< phpunit/phpunit ###
+
+.env.*.local

@@ -18,3 +18,30 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    
+    App\Domain\Repository\DriverRepositoryInterface:
+        class: App\Infrastructure\Repository\DoctrineDriverRepository
+
+    App\Domain\Repository\RaceRepositoryInterface:
+        class: App\Infrastructure\Repository\DoctrineRaceRepository
+
+    App\Domain\Repository\RaceResultRepositoryInterface:
+        class: App\Infrastructure\Repository\DoctrineRaceResultRepository
+        
+    App\Domain\Event\DomainEventDispatcherInterface:
+        class: App\Infrastructure\Event\SymfonyDomainEventDispatcher
+        
+    App\Domain\Specification\:
+        resource: '../src/Domain/Specification'
+    
+    App\Application\CommandHandler\:
+        resource: '../src/Application/CommandHandler'
+        tags: ['messenger.message_handler']
+        
+    App\Application\QueryHandler\:
+        resource: '../src/Application/QueryHandler'
+        tags: [ 'messenger.message_handler' ]
+
+    App\Command\:
+        resource: '../src/Command'
+        tags: ['console.command']
